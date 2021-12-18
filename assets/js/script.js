@@ -27,6 +27,20 @@ function generatePassword (){
   }
 };
 
+// create parameters for password
+var confirmLowerCase = confirm("Click ok to include lowercase characters");
+var confirmUpperCase = confirm("Click ok to include uppercase characters");
+var confirmNumericValue = confirm("Click ok to include numeric characters");
+var confirmSpecialChars = confirm("Click ok to include special characters");
+// loop if outside of parameter
+  while(confirmLowerCase === false && confirmUpperCase === false && confirmNumericValue === false && confirmSpecialChars === false) {
+    window.alert("You must choose at least one parameter");
+    var confirmLowerCase = confirm("Click ok to include lowercase characters");
+    var confirmUpperCase = confirm("Click ok to include uppercase characters");
+    var confirmNumericValue = confirm("Click ok to include numeric characters");
+    var confirmSpecialChars = confirm("Click ok to include special characters");
+  }
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
