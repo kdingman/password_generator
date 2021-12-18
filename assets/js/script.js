@@ -17,6 +17,16 @@ var confirmUpperCase;
 var confirmNumericValue;
 var confirmSpecialChars;
 
+// confirm how many characters user would like to use
+function generatePassword (){
+  var confirmLength = (window.prompt("How many characters would you like your password to contain?"));
+  // loop if outside of parameters  
+  while (confirmLength <= 8 || confirmLength >= 128){
+  window.alert("Password must be between 8-128 characters, Try Again!");
+  var confirmLength = (window.prompt("How many characters would you like your password to contain?"));
+  }
+};
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
