@@ -9,10 +9,10 @@ var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=", 
 var passwordLength = " <= 8 || >=128 ";
 
 // confirm how many characters user would like to use
-function generatePassword() {
+function questions() {
   var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
   // loop if not enough characters selected 
-  if(passwordLength <= 8 || passwordLength >=  128){
+  if(passwordLength < 8 || passwordLength > 128) {
   window.alert("Password must be between 8-128 characters, Try Again!");
   var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
   }
@@ -22,58 +22,55 @@ function generatePassword() {
   var upperCase = confirm("Click ok to include uppercase characters");  
   var numericValue = confirm("Click ok to include numeric characters");    
   var specialChars = confirm("Click ok to include special characters");
-   
-
+ 
   // loop if outside of parameter
   if(lowerCase === false && upperCase === false && numericValue === false && specialChars === false) {
+    window.alert("You must select at least one character type, Try Again.")
   var lowerCase = confirm("Click ok to include lowercase characters");   
   var upperCase = confirm("Click ok to include uppercase characters");    
   var numericValue = confirm("Click ok to include numeric characters");   
   var specialChars = confirm("Click ok to include special characters");
-    
   };
 
-
   // objects
-  var passwordOptions = {
+  var responses = {
     lowerCase: lowerCase,
     upperCase: upperCase,
     numericValue: numericValue,
-    specialChars: specialChars
+    specialChars: specialChars,
+    passwordLength: passwordLength
   };
-    return passwordOptions;
-}
-
-possibleOutcomes = function() {
-  return passwordOptions+""+passwordLength;
+    return responses;
 }
 
 // create strong responses from results
-  var passwordOptions = ['lowerCase', 'upperCase', 'numberValue', 'specialChars'];
+function generatePassword() {
+  var passwordSelections = questions();
   var possibleOutcomes = [];
-  var getPassword = [];
+  var getPassword = "";
   
-  if(passwordOptions.lowerCase) {
-    passwordOptions = passwordOptions.concat(lowerCase);
-    possibleOutcomes.push(getRandom(lowerCase)).value
+  if(passwordSelections.lowerCase) {
+    for(var i of lowerCase)
+    possibleOutcomes.push(i);
   }
-  if(passwordOptions.upperCase) {
-    passwordOptions = passwordOptions.concat(upperCase);
-    possibleOutcomes.push(getRandom(upperCase)).value
+  if(passwordSelections.upperCase) {
+    for(var i of upperCase)
+    possibleOutcomes.push(i);
   }
-  if(passwordOptions.numericValue) {
-    passwordOptions = passwordOptions.concat(numericValue)
-    possibleOutcomes.push(getRandom(numericValue)).value
+  if(passwordSelections.numericValue) {
+    for(var i of numericValue)
+    possibleOutcomes.push(i);
   }
-  if(passwordOptions.specialChars) {
-    passwordOptions = passwordOptions.concat(specialChars);
-    possibleOutcomes.push(getRandom(specialChars)).value
+  if(passwordSelections.specialChars) {
+    for(var i of specialChars)
+    possibleOutcomes.push(i);
   }
   
-  for(var i = 0; i<=passwordLength; i++) {
-    getPassword += possibleOutcomes[Math.floor(Math.random() * passwordOptions.passwordLength)];
+  for (var i = 0; i < passwordSelections.passwordLength; i++) {
+    getPassword += possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.passwordLength)];
   }
-
+    return getPassword;
+};
 
 // Write password to the #password input
 function writePassword() {
