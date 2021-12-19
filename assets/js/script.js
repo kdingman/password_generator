@@ -7,35 +7,29 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var numericValue = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=", "+", "{", "}", "[", "]", "|", "`", "?", ">", "<", ";", ":", ".", ",", ];
 
-// variable declaration
-var passwordLength = "";
-var confirmLowerCase;
-var confirmUpperCase;
-var confirmNumericValue;
-var confirmSpecialChars;
-
 // confirm how many characters user would like to use
-function generateMustHaves() {
+function generatePassword() {
   var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
   // loop if not enough characters selected 
-  if(passwordLength <  8 || passwordLength >  128){
+  if(passwordLength <= 8 || passwordLength >=  128){
   window.alert("Password must be between 8-128 characters, Try Again!");
   var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
   }
 
 // create parameters for password
-  var confirmLowerCase = confirm("Click ok to include lowercase characters");
-  var confirmUpperCase = confirm("Click ok to include uppercase characters");
-  var confirmNumericValue = confirm("Click ok to include numeric characters");
-  var confirmSpecialChars = confirm("Click ok to include special characters");
+  var lowerCase = confirm("Click ok to include lowercase characters");
+  var upperCase = confirm("Click ok to include uppercase characters");  
+  var numericValue = confirm("Click ok to include numeric characters");    
+  var specialChars = confirm("Click ok to include special characters");
+   
 
   // loop if outside of parameter
-  if(confirmLowerCase === false && confirmUpperCase === false && confirmNumericValue === false && confirmSpecialChars === false) {
-    window.alert("You must choose at least one character");
-    var confirmLowerCase = confirm("Click ok to include lowercase characters");
-    var confirmUpperCase = confirm("Click ok to include uppercase characters");
-    var confirmNumericValue = confirm("Click ok to include numeric characters");
-    var confirmSpecialChars = confirm("Click ok to include special characters");
+  if(lowerCase === false && upperCase === false && numericValue === false && specialChars === false) {
+  var lowerCase = confirm("Click ok to include lowercase characters");   
+  var upperCase = confirm("Click ok to include uppercase characters");    
+  var numericValue = confirm("Click ok to include numeric characters");   
+  var specialChars = confirm("Click ok to include special characters");
+    
   };
 
   // objects
@@ -44,36 +38,36 @@ function generateMustHaves() {
     upperCase: upperCase,
     numericValue: numericValue,
     specialChars: specialChars
-  }
-  return passwordOptions;
+  };
+    return passwordOptions;
 }
 
 // create strong responses from results
-function generatePassword() {
-  var passwordOptions = generateMustHaves();
+  var passwordOptions = ['lowerCase', 'upperCase', 'numberValue', 'specialChars'];
   var possibleOutcomes = [];
-  var getPassword = "";
+  var getPassword = ['lowerCase', 'upperCase', 'numberValue', 'specialChars'];
   
-  if(passwordOptions.confirmLowerCase) {
+  if(passwordOptions.lowerCase) {
     passwordOptions = passwordOptions.concat(lowerCase);
     possibleOutcomes.push(getRandom(lowerCase))
   }
-  if(passwordOptions.confirmUpperCase) {
+  if(passwordOptions.upperCase) {
     passwordOptions = passwordOptions.concat(upperCase);
     possibleOutcomes.push(getRandom(upperCase))
   }
-  if(passwordOptions.confirmNumericValue) {
+  if(passwordOptions.numericValue) {
     passwordOptions = passwordOptions.concat(numericValue)
     possibleOutcomes.push(getRandom(numericValue))
   }
-  if(passwordOptions.confirmSpecialChars) {
+  if(passwordOptions.specialChars) {
     passwordOptions = passwordOptions.concat(specialChars);
     possibleOutcomes.push(getRandom(specialChars))
   }
+  
+  for(var i = 0; i<=passwordOptions.passwordLength; i++) {
+    getPassword += possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.passwordLength)];
+  }
 
-for(var i = 0; i<=passwordOptions.passwordLength; i++) {
-  getPassword += possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.passwordLength)];
-}
 
 // Write password to the #password input
 function writePassword() {
