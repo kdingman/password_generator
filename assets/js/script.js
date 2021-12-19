@@ -53,6 +53,7 @@ function generatePassword() {
     for(var i of lowerCase)
     possibleOutcomes.push(i);
   }
+
   if(passwordSelections.upperCase) {
     for(var i of upperCase)
     possibleOutcomes.push(i);
@@ -71,6 +72,7 @@ function generatePassword() {
   }
     return getPassword;
 };
+
 
 // Write password to the #password input
 function writePassword() {
