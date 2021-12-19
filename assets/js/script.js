@@ -6,6 +6,7 @@ var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numericValue = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=", "+", "{", "}", "[", "]", "|", "`", "?", ">", "<", ";", ":", ".", ",", ];
+var passwordLength = " <= 8 || >=128 ";
 
 // confirm how many characters user would like to use
 function generatePassword() {
@@ -32,6 +33,7 @@ function generatePassword() {
     
   };
 
+
   // objects
   var passwordOptions = {
     lowerCase: lowerCase,
@@ -42,30 +44,34 @@ function generatePassword() {
     return passwordOptions;
 }
 
+possibleOutcomes = function() {
+  return passwordOptions+""+passwordLength;
+}
+
 // create strong responses from results
   var passwordOptions = ['lowerCase', 'upperCase', 'numberValue', 'specialChars'];
   var possibleOutcomes = [];
-  var getPassword = ['lowerCase', 'upperCase', 'numberValue', 'specialChars'];
+  var getPassword = [];
   
   if(passwordOptions.lowerCase) {
     passwordOptions = passwordOptions.concat(lowerCase);
-    possibleOutcomes.push(getRandom(lowerCase))
+    possibleOutcomes.push(getRandom(lowerCase)).value
   }
   if(passwordOptions.upperCase) {
     passwordOptions = passwordOptions.concat(upperCase);
-    possibleOutcomes.push(getRandom(upperCase))
+    possibleOutcomes.push(getRandom(upperCase)).value
   }
   if(passwordOptions.numericValue) {
     passwordOptions = passwordOptions.concat(numericValue)
-    possibleOutcomes.push(getRandom(numericValue))
+    possibleOutcomes.push(getRandom(numericValue)).value
   }
   if(passwordOptions.specialChars) {
     passwordOptions = passwordOptions.concat(specialChars);
-    possibleOutcomes.push(getRandom(specialChars))
+    possibleOutcomes.push(getRandom(specialChars)).value
   }
   
-  for(var i = 0; i<=passwordOptions.passwordLength; i++) {
-    getPassword += possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.passwordLength)];
+  for(var i = 0; i<=passwordLength; i++) {
+    getPassword += possibleOutcomes[Math.floor(Math.random() * passwordOptions.passwordLength)];
   }
 
 
