@@ -6,6 +6,9 @@ var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numericValue = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin
 var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=", "+", "{", "}", "[", "]", "|", "`", "?", ">", "<", ";", ":", ".", ",",];
 
 // variables defined
@@ -13,6 +16,7 @@ var confirmLowerCase = lowerCase;
 var confirmUpperCase = upperCase;
 var confirmNumericValue = numericValue;
 var confirmSpecialChars = specialChars;
+<<<<<<< HEAD
 =======
 var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=", "+", "{", "}", "[", "]", "|", "`", "?", ">", "<", ";", ":", ".", ",", ];
 
@@ -23,10 +27,13 @@ var confirmUpperCase = upperCase;
 var confirmNumericValue = numericValue;
 var confirmSpecialChars = specialChars
 >>>>>>> develop
+=======
+>>>>>>> origin
 var passwordLength = "";
 
 // confirm how many characters user would like to use
 function askQuestions() {
+<<<<<<< HEAD
 <<<<<<< HEAD
 // create parameters for password
 =======
@@ -35,6 +42,9 @@ function askQuestions() {
   if(passwordLength < 8 || passwordLength > 128) {
   window.alert("Password must be between 8-128 characters, Try Again!");
 >>>>>>> develop
+=======
+// create parameters for password
+>>>>>>> origin
   var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
       // loop if not enough characters selected 
       if(passwordLength < 8 || passwordLength > 128) {
@@ -66,6 +76,9 @@ function askQuestions() {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin
   // create strong responses from results
   var passwordSelections = askQuestions();
   var possibleOutcomes = [];
@@ -99,6 +112,7 @@ function generatePassword() {
       return getPassword;
 
 }
+<<<<<<< HEAD
 =======
 // create parameters for password
   var confirmLowerCase = confirm("Click ok to include lowercase characters");
@@ -154,6 +168,8 @@ function generatePassword() {
     return getPassword;
 };
 >>>>>>> develop
+=======
+>>>>>>> origin
 
 // Write password to the #password input
 function writePassword() {
