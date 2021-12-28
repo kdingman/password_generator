@@ -19,23 +19,26 @@ function askQuestions() {
 // create parameters for password
   var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
       // loop if not enough characters selected 
-      if(passwordLength < 8 || passwordLength > 128) {
+      if(passwordLength < 8 ) {
         window.alert("Password must be between 8-128 characters, Try Again!");
     var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
       }
+      if(passwordLength >128) {
+        window.alert("Password must be between 128 characters, Try Again!");
+        var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
+      }
 
-  var confirmLowerCase = confirm("Click ok to include lowercase characters");
-  var confirmUpperCase = confirm("Click ok to include uppercase characters");  
-  var confirmNumericValue = confirm("Click ok to include numeric characters");    
-  var confirmSpecialChars = confirm("Click ok to include special characters");
-  var responses = {
-    confirmLowerCase: confirmLowerCase,
-    confirmUpperCase: confirmUpperCase,
-    confirmNumericValue: confirmNumericValue,
-    confirmSpecialChars: confirmSpecialChars,
-    passwordLength: passwordLength
-   }
-
+    var confirmLowerCase = confirm("Click ok to include lowercase characters");
+    var confirmUpperCase = confirm("Click ok to include uppercase characters");  
+    var confirmNumericValue = confirm("Click ok to include numeric characters");    
+    var confirmSpecialChars = confirm("Click ok to include special characters");
+    var responses = {
+      confirmLowerCase: confirmLowerCase,
+      confirmUpperCase: confirmUpperCase,
+      confirmNumericValue: confirmNumericValue,
+      confirmSpecialChars: confirmSpecialChars,
+      passwordLength: passwordLength
+    };
     // loop if outside of parameter
     if(confirmLowerCase === false && confirmUpperCase === false && confirmNumericValue === false && confirmSpecialChars === false) {
       window.alert("You must select at least one character type, Try Again.")
@@ -44,8 +47,12 @@ function askQuestions() {
   var confirmNumericValue = confirm("Click ok to include numeric characters");   
   var confirmSpecialChars = confirm("Click ok to include special characters");
     }
+    else {
+      
+    }
     return responses;
-  }
+}
+  
 
   // create strong responses from results
   var passwordSelections = askQuestions();
