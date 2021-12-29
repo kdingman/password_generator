@@ -27,6 +27,9 @@ function askQuestions() {
         window.alert("Password must be 128 characters or less, Try Again!");
         var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
       }
+      else {
+        //loop will run again
+      }
 
     var confirmLowerCase = confirm("Click ok to include lowercase characters");
     var confirmUpperCase = confirm("Click ok to include uppercase characters");  
