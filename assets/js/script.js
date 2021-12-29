@@ -20,11 +20,11 @@ function askQuestions() {
   var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
       // loop if not enough characters selected 
       if(passwordLength < 8 ) {
-        window.alert("Password must be between 8-128 characters, Try Again!");
+        window.alert("Password must be 8 or more characters, Try Again!");
     var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
       }
       if(passwordLength >128) {
-        window.alert("Password must be between 128 characters, Try Again!");
+        window.alert("Password must be less than 128 characters, Try Again!");
         var passwordLength = (window.prompt("How many characters would you like your password to contain?"));
       }
 
